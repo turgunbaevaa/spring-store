@@ -1,5 +1,8 @@
-package com.codearuu.store;
+package com.codearuu.store.services;
 
+import com.codearuu.store.interfaces.NotificationService;
+import com.codearuu.store.User;
+import com.codearuu.store.interfaces.UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service

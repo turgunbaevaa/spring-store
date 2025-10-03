@@ -1,8 +1,7 @@
-package com.codearuu.store;
+package com.codearuu.store.services;
 
-import org.springframework.stereotype.Service;
+import com.codearuu.store.interfaces.PaymentService;
 
-//@Service("paypal")
 public class PayPalPaymentService implements PaymentService {
 
     @Override

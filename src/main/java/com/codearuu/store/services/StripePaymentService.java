@@ -1,13 +1,10 @@
-package com.codearuu.store;
+package com.codearuu.store.services;
 
+import com.codearuu.store.interfaces.PaymentService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//@Service("stripe")
-//@Primary
 public class StripePaymentService implements PaymentService {
 
     @Value("${stripe.apiUrl}")

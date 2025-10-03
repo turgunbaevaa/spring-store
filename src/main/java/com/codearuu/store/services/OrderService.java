@@ -1,5 +1,6 @@
-package com.codearuu.store;
+package com.codearuu.store.services;
 
+import com.codearuu.store.interfaces.PaymentService;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 
