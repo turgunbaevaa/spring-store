@@ -1,6 +1,7 @@
 package com.codearuu.store;
 
 import com.codearuu.store.entities.Address;
+import com.codearuu.store.entities.Tag;
 import com.codearuu.store.entities.User;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -16,14 +17,11 @@ public class StoreApplication {
                 .email("john@example.com")
                 .password("password")
                 .build();
-        var address = Address.builder()
-                .street("Street 1")
-                .city("City 1")
-                .state("State 1")
-                .zip("Zip 1")
-                .build();
+        var tag = new Tag("tag1");
 
-        user.addAddress(address);
+        user.addTag("tag1");
+        user.addTag("tag2");
+
         System.out.println(user);
     }
 }
