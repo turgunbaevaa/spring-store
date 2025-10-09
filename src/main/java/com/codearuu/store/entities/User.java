@@ -65,6 +65,10 @@ public class User {
     @Builder.Default
     private Set<Tag> tags = new HashSet<>();
 
+    @OneToOne(mappedBy = "user")
+    private Profile profile;
+
+
 }
 
 
