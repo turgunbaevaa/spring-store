@@ -1,9 +1,8 @@
 package com.codearuu.store;
 
-import com.codearuu.store.entities.Address;
-import com.codearuu.store.entities.Profile;
-import com.codearuu.store.entities.Tag;
 import com.codearuu.store.entities.User;
+import com.codearuu.store.repositories.UserRepository;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
@@ -11,20 +10,11 @@ import org.springframework.context.ApplicationContext;
 public class StoreApplication {
 
     public static void main(String[] args) {
-        //ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-        var user = User.builder()
-                .id(1L)
-                .name("John Doe")
-                .email("john@example.com")
-                .password("password")
-                .build();
+        ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+        var repository = context.getBean(UserRepository.class);
 
-        var profile = Profile.builder()
-                        .bio("bio")
-                                .build();
-
-        user.setProfile(profile);
-        profile.setUser(user);
-        System.out.println(user);
+        repository.findAll().forEach(u -> System.out.println(u.getEmail()));
+        repository.deleteById(1L);
+        repository.deleteAll();
     }
 }
