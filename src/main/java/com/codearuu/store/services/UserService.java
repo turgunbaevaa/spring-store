@@ -1,6 +1,7 @@
 package com.codearuu.store.services;
 
 import com.codearuu.store.entities.User;
+import com.codearuu.store.repositories.ProfileRepository;
 import com.codearuu.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
 
     @Transactional
@@ -35,5 +37,11 @@ public class UserService {
         } else {
             System.out.println("Transient / Detached");
         }
+    }
+
+    @Transactional
+    public void showRelatedEntities(){
+        var profile = profileRepository.findById(8L).orElseThrow();
+        System.out.println(profile.getUser().getEmail());
     }
 }
